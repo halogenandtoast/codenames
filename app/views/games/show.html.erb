@@ -2,7 +2,7 @@
   <% @game.data["words"].each_slice(5) do |row| %>
     <div>
       <% row.each do |word| %>
-        <% if false && current_player.spymaster? || word["guessed"] == true %>
+        <% if current_player.spymaster? || word["guessed"] == true %>
           <span class="word <%= word["type"] %>"><%= word["text"] %></span>
         <% else %>
           <span class="word"><%= button_to word["text"], guess_path(word: word["text"]) %></span>
