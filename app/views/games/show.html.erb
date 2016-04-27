@@ -18,11 +18,13 @@
     <%= button_to "Delete game", game_path, method: :delete %>
   <% else %>
     <footer>
+      <p>You are on the <span style="color: <%= current_player.color %>"><%= current_player.color %></span> team</p>
+
       <% if current_player.spymaster? %>
           <h2><%= @game.first %> goes first</h2>
       <% end %>
 
-      <h2>Players on team</h2>
+      <h2>Players on the <%= current_player.color %> team</h2>
       <ul>
         <% @game.players_on_team(current_player.color).each do |player| %>
           <li><%= player.name %><% if player.spymaster? %> (<strong>spymaster</strong>)<% end %></li>
