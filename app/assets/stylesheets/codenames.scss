@@ -1,0 +1,74 @@
+body, html {
+  height: 100%;
+}
+
+h2, form, button {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background: asset-url("background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.form {
+  background-color: aliceblue;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.word {
+  // display: inline-block;
+  // width: 19%;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  background-color: #F2DABB;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #222;
+}
+
+.word.red {
+  background-color: #C34220;
+}
+
+.word.blue {
+  background-color: #326198;
+}
+
+.word.neutral {
+  background-color: #FFF;
+}
+
+.word.assassin {
+  background-color: #333;
+  color: #FFF;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.word input[type=submit] {
+  background: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  font-size: 1.4em;
+  outline: none;
+}
+
+footer {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(256, 256, 256, 0.8);
+  border-radius: 5px;
+}

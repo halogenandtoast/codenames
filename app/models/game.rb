@@ -7,6 +7,10 @@ class Game < ActiveRecord::Base
       assassin_word["guessed"]
   end
 
+  def players_on_team(color)
+    players.where(color: color)
+  end
+
   private
 
   def red_words

@@ -1,18 +1,33 @@
 <% if @game.started? %>
-  <% @game.data["words"].each_slice(5) do |row| %>
-    <div>
-      <% row.each do |word| %>
-        <% if current_player.spymaster? || word["guessed"] == true %>
-          <span class="word <%= word["type"] %>"><%= word["text"] %></span>
-        <% else %>
-          <span class="word"><%= button_to word["text"], guess_path(word: word["text"]) %></span>
+  <table>
+    <% @game.data["words"].each_slice(5) do |row| %>
+      <tr>
+        <% row.each do |word| %>
+          <% if false && current_player.spymaster? || word["guessed"] == true %>
+            <td class="word <%= word["type"] %>"><%= word["text"] %></td>
+          <% else %>
+            <td class="word"><%= button_to word["text"], guess_path(word: word["text"]) %></td>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-  <% end %>
+      </tr>
+    <% end %>
+  </table>
 
   <% if @game.game_over? %>
     <%= button_to "Delete game", game_path, method: :delete %>
+  <% else %>
+    <footer>
+      <% if current_player.spymaster? %>
+          <h2><%= @game.first %> goes first</h2>
+      <% end %>
+
+      <h2>Players on team</h2>
+      <ul>
+        <% @game.players_on_team(current_player.color).each do |player| %>
+          <li><%= player.name %><% if player.spymaster? %> (<strong>spymaster</strong>)<% end %></li>
+        <% end %>
+      </ul>
+    </footer>
   <% end %>
 <% else %>
   <h2>Code for others to join</h2>
