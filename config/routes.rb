@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resource :game_sessions, only: [:create], as: :sessions
   end
 
+  resources :replays, only: [:create]
   resources :players, only: [:create]
   resource :guess, only: [:create]
 end

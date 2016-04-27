@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_player
   def current_player
-    Player.find_by(ip_address: request.remote_ip) || NullPlayer.new
+    Player.find_by(id: session[:player_id]) || NullPlayer.new
   end
 
   def current_game

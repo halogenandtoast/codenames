@@ -1,7 +1,8 @@
 class PlayersController < ApplicationController
   def create
     if game
-      game.players.create(player_params)
+      player = game.players.create(player_params)
+      session[:player_id] = player.id
       redirect_to game
     else
       redirect_to root_path, alert: "No game found"
