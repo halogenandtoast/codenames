@@ -35,7 +35,11 @@
 
     setInterval(function() {
       $.getJSON("<%= api_game_path(@game) %>", function(game) {
-        if(Date.parse(game.updated_at) > ts) { location.reload(); }
+        if(game.deleted) {
+          window.location = "/";
+        } else {
+          if(Date.parse(game.updated_at) > ts) { location.reload(); }
+        }
       });
     }, 1000);
   });
