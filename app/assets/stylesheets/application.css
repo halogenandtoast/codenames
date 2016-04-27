@@ -33,14 +33,15 @@ body, html {
   line-height: 100px;
   background-color: tan;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .word.red {
-  background-color: red;
+  background-color: #EE9999;
 }
 
 .word.blue {
-  background-color: blue;
+  background-color: #9999EE;
 }
 
 .word.neutral {
