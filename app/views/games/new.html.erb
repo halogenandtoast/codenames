@@ -1,0 +1,29 @@
+<div class="form">
+  <%= form_for @game do |form| %>
+    <%= form.fields_for(:player) do |player_fields| %>
+      <div>
+        <%= player_fields.label :name, "Your name" %>
+        <%= player_fields.text_field :name, required: true %>
+      </div>
+    <% end %>
+    <%= form.submit "Create a new game" %>
+  <% end %>
+</div>
+
+<div class="form">
+  <%= form_for @player do |form| %>
+    <div>
+      <%= form.label :name, "Your name" %>
+      <%= form.text_field :name, required: true %>
+    </div>
+
+    <%= form.fields_for(:game) do |game_fields| %>
+      <div>
+        <%= game_fields.label :code, "Code to access game" %>
+        <%= game_fields.text_field :code, required: true %>
+      </div>
+    <% end %>
+
+    <%= form.submit "Join existing game" %>
+  <% end %>
+</div>

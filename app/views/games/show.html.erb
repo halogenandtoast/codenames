@@ -1,0 +1,30 @@
+<% if @game.started? %>
+  <% @game.data["words"].each_slice(5) do |row| %>
+    <div>
+      <% row.each do |word| %>
+        <% if false && current_player.spymaster? || word["guessed"] == true %>
+          <span class="word <%= word["type"] %>"><%= word["text"] %></span>
+        <% else %>
+          <span class="word"><%= button_to word["text"], guess_path(word: word["text"]) %></span>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if @game.game_over? %>
+    <%= button_to "Delete game", game_path, method: :delete %>
+  <% end %>
+<% else %>
+  <h2>Code for others to join</h2>
+  <div><%= @game.code %></div>
+
+  <h2>Players</h2>
+  <ul>
+    <% @game.players.each do |player| %>
+      <li><%= player.name %></li>
+    <% end %>
+  </ul>
+  <%= form_for :game_session, url: game_sessions_path(@game) do |form| %>
+    <%= form.submit "Start Game" %>
+  <% end %>
+<% end %>
