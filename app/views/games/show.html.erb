@@ -14,7 +14,7 @@
   </table>
 
   <% if @game.game_over? %>
-    <%= button_to "Replay", replay_path %>
+    <%= button_to "Replay", replays_path %>
     <%= button_to "Delete game", game_path, method: :delete %>
   <% else %>
     <footer>
