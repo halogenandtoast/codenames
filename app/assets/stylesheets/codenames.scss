@@ -72,3 +72,27 @@ footer {
   background-color: rgba(256, 256, 256, 0.8);
   border-radius: 5px;
 }
+
+table td.guessed-red {
+  box-sizing: border-box;
+  background-color: #FFFED9 !important;
+  border: 10px solid #C34220;
+}
+
+table td.guessed-blue {
+  box-sizing: border-box;
+  background-color: #FFFED9 !important;
+  border: 10px solid #326198;
+}
+
+table td.guessed-neutral {
+  box-sizing: border-box;
+  background-color: #FFFED9 !important;
+  border: 10px solid #BBB;
+}
+
+table td.guessed-assassin {
+  box-sizing: border-box;
+  background-color: #FFFED9 !important;
+  border: 10px solid #333;
+}
