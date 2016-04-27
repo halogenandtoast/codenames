@@ -28,3 +28,16 @@
     <%= form.submit "Start Game" %>
   <% end %>
 <% end %>
+
+<script type="text/javascript">
+  $(function() {
+    var ts = Date.parse("<%= @game.updated_at.as_json %>");
+
+    setInterval(function() {
+      $.getJSON("<%= api_game_path(@game) %>", function(game) {
+        if(Date.parse(game.updated_at) > ts) { location.reload(); }
+      });
+    }, 1000);
+  });
+</script>
+
