@@ -8,6 +8,7 @@ class GamesController < ApplicationController
   def create
     @game = GameCreator.new.create
     player = @game.players.create(player_params)
+    session[:player_id] = player.id
 
     redirect_to @game
   end
